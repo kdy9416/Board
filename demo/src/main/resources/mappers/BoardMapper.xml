@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.IBoardMapper">
+	
+	<resultMap id="BoardMap" type="com.example.demo.vo.BoardVO">
+		<result property="boardNum" column="board_num"/>
+		<result property="writer" column="writer"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="wrDate" column="wr_date"/>
+		<result property="viewCnt" column="view_cnt"/>
+	</resultMap>
+	
+	<insert id="insert">
+		insert into board(writer,title,content)
+		values(#{writer},#{title},#{content})
+	</insert>
+	
+	<select id="getAllArticles" resultMap="BoardMap">
+		select *
+		from board
+		<if test="condition=='title'">
+		where title
+		like concat('%',#{keyword},'%')
+		</if>
+		<if test="condition=='writer'">
+		where writer
+		like concat('%',#{keyword},'%')
+		</if>
+		<if test="condition=='content'">
+		where title
+		like concat('%',#{keyword},'%')
+		</if>
+		<if test="condition=='titleContent'">
+		where title
+		like concat('%',#{keyword},'%')
+		or content
+		like concat('%',#{keyword},'%')
+		</if>
+		limit #{startPage},#{countPerPage}
+	</select>
+	
+	<select id="countArticles" resultType="int">
+		select count(*)
+		from board
+		<if test="condition=='title'">
+		where title
+		like concat('%',#{keyword},'%')
+		</if>
+		<if test="condition=='writer'">
+		where writer
+		like concat('%',#{keyword},'%')
+		</if>
+		<if test="condition=='content'">
+		where title
+		like concat('%',#{keyword},'%')
+		</if>
+		<if test="condition=='titleContent'">
+		where title
+		like concat('%',#{keyword},'%')
+		or content
+		like concat('%',#{keyword},'%')
+		</if>
+	</select>
+	
+	<select id="getArticle" resultMap="BoardMap">
+		Select *
+		from board
+		where board_num=#{boardNum}
+	</select>
+	<delete id="delete">
+		DELETE from board
+		where board_num=#{boardNum}
+	</delete>
+	
+	<update id="update">
+		update board
+		set writer=#{writer},content=#{content},title=#{title}
+		where board_num=#{boardNum}
+	</update>
+</mapper>
+    
+ 
