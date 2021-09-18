@@ -4,24 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.dao.IBoardMapper">
-	
-	<!-- 중복되는 동적 SQL문에 대한 처리 -->
-	<sql id="search">
-		<!-- 동적 SQL구문 -->
-		<if test="condition == 'title'">
-		WHERE title LIKE CONCAT('%', #{keyword},'%')
-		</if>
-		<if test="condition == 'writer'">
-		WHERE writer LIKE CONCAT('%', #{keyword},'%')
-		</if>
-		<if test="condition == 'content'">
-		WHERE content LIKE CONCAT('%', #{keyword},'%')
-		</if>
-		<if test="condition == 'titleContent'">
-		WHERE title LIKE CONCAT('%', #{keyword},'%')
-		 OR content LIKE CONCAT('%', #{keyword},'%')
-		</if>
-	</sql>
+
 	
 	
 	<resultMap id="BoardMap" type="com.example.demo.vo.BoardVO">
