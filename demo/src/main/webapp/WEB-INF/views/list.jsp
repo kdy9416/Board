@@ -41,7 +41,7 @@
 					
 		
 		<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
-		<a href="/demo/list?page=${pageNum}&countePerPage=${pc.paging.countPerPage}" class="page-link" style="margin-top: 0; height: 40px; color: pink; border: 1px solid pink;">${pageNum}</a>
+		<a href="/demo/list?page=${pageNum}&countePerPage=${pc.paging.countPerPage}&keyword=${pc.paging.keyword}&condition=${pc.paging.condition}" class="page-link" style="margin-top: 0; height: 40px; color: pink; border: 1px solid pink;">${pageNum}</a>
 		</c:forEach>
 						
 		<c:if test="${pc.next}">
