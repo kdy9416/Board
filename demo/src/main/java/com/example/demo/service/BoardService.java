@@ -20,7 +20,8 @@ public class BoardService implements IBoardService{
 
 	@Override
 	public BoardVO getArticle(int boardNum) {
-
+		
+		mapper.updateViewCnt(boardNum);
 		return mapper.getArticle(boardNum);
 	}
 

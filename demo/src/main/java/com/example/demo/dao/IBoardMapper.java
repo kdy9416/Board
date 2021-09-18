@@ -16,6 +16,9 @@ public interface IBoardMapper {
 	
 	//특정 게시물 조회
 	BoardVO getArticle(int boardNum);
+	
+	//게시물 조회수 상승
+	void updateViewCnt(int boardNum);
 	   
 	//전체 게시물수 조회(검색 페이징 포함)
 	int countArticles(SearchVO vo);

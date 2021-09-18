@@ -90,6 +90,13 @@
 		from board
 		where board_num=#{boardNum}
 	</select>
+	
+	<update id="updateViewCnt">
+		update board
+		set view_cnt = view_cnt + 1
+		where board_num = #{boardNum};
+	</update>
+	
 	<delete id="delete">
 		DELETE from board
 		where board_num=#{boardNum}
