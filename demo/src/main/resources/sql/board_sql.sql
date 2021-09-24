@@ -1,4 +1,4 @@
-CREATE TABLE mvc_board (
+CREATE TABLE board (
     board_num INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     content TEXT NULL,

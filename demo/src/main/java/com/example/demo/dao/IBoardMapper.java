@@ -11,7 +11,7 @@ import com.example.demo.vo.BoardVO;
 @Mapper
 public interface IBoardMapper {
 
-	//전체 리스트 조회(검색 페이징 포함)
+	//전체 리스트 조회(검색과 페이징 포함)
 	List<BoardVO> getAllArticles(SearchVO vo);
 	
 	//특정 게시물 조회
