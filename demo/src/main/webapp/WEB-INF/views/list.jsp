@@ -29,7 +29,7 @@
 		<td>${v.writer}</td>
 		<td><a href="/demo/check?boardNum=${v.boardNum}">${v.title}</a></td>
 		<td>
-		<fmt:formatDate pattern = "yyyy/MM/dd" value="${v.wrDate}"/>
+		${v.wrDate}
 		</td>
 		<td>${v.viewCnt}</td>
 	</tr>
