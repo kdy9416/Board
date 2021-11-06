@@ -42,6 +42,7 @@
 		or content
 		like concat('%',#{keyword},'%')
 		</if>
+		order by board_num desc
 		limit #{startPage},#{countPerPage}
 	</select>
 	
